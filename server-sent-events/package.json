@@ -1,0 +1,14 @@
+{
+  "name": "Server-sent Events Tutorial",
+  "version": "1.0.0",
+  "description": "Supporting materials for the server-sent events tutorial blog",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "Ryan Travitz",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}

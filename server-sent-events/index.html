@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>title</title>
+  </head>
+  <body>
+    <ul></ul>
+    <script>
+      const eventSource = new EventSource('http://localhost:3333/stream')
+      const eventList = document.querySelector('ul')
+
+      eventSource.onmessage = (e) => {
+        const newElement = document.createElement('li')
+        newElement.textContent = `message: ${e.data}`
+        eventList.appendChild(newElement)
+      }
+    </script>
+  </body>
+</html>

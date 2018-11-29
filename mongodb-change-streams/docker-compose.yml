@@ -1,0 +1,36 @@
+version: "3"
+services:
+  mongo1:
+    image: mongo:3.6
+    volumes:
+    - mongo1data:/data/db
+    ports:
+    - "30001:27017"
+    command: ["mongod", "--replSet", "jump-set"]
+
+  mongo2:
+    image: mongo:3.6
+    volumes:
+    - mongo2data:/data/db
+    ports:
+    - "30002:27017"
+    command: ["mongod", "--replSet", "jump-set"]
+
+  mongo3:
+    image: mongo:3.6
+    volumes:
+    - mongo3data:/data/db
+    ports:
+    - "30003:27017"
+    command: ["mongod", "--replSet", "jump-set"]
+
+  mongosetup:
+    image: mongo:3.6
+    volumes:
+      - ./scripts:/scripts
+    entrypoint: ["bash", "/scripts/mongoSetup.sh"]
+
+volumes:
+  mongo1data:
+  mongo2data:
+  mongo3data:
