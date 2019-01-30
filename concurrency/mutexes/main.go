@@ -7,9 +7,9 @@ import (
 )
 
 func main() {
-	var planetList = make(map[string]string)
-	var mutex = &sync.Mutex{}
 	var wg sync.WaitGroup
+	mutex := &sync.Mutex{}
+	planetList := make(map[string]string)
 
 	for i := 1; i < 4; i++ {
 		wg.Add(1)
